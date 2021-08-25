@@ -1,4 +1,4 @@
-# Copy of the Google front-page
+# Scraper that writes CSV, JSON and Google Spreadsheet files
 
 ## Table of contents
 * [General info](#general-info)
@@ -16,7 +16,7 @@ Project is created with
 ## Setup
 
 Install by doing:
-$ bundle install
+<code>$ bundle install</code>
 
 Run it by doing:
-$ ruby app.rb
+<code>$ ruby app.rb</code>
