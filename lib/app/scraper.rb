@@ -27,8 +27,8 @@ class Scraper
 
       name_and_email = {name => email}
 
-      city_names_and_emails << name_and_email if name_and_email.values != [""]
-      
+      city_names_and_emails << name_and_email if name_and_email.values != [""] # removes Hashes with no email
+
       system ('clear')
       puts ("▓" * (((index+1)*50)/nb_of_cities) + "░" * 50)[0..49] + "  #{(((index+1)*100)/nb_of_cities.to_f).round(1)} %"
     end
@@ -46,5 +46,12 @@ class Scraper
       end
     end
   end
+
+  def write_json
+    File.open("db/scraper_data.json", "w") do |f|
+        f.write(JSON.pretty_generate(mairie_xmas))
+      end
+      
+    end
 
 end

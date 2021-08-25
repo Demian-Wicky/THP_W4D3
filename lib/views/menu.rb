@@ -9,9 +9,9 @@ class Menu
     puts "0 - ".yellow + "Montre moi juste le résultat dans le " + "terminal".yellow
     puts "1 - ".yellow + "Générer un fichier " + "CSV".yellow
     puts "2 - ".yellow + "Générer un fichier " + "JSON".yellow
-    puts "3 - ".yellow + "Générer un fichier " + "Google Spreadsheet".yellow
+    puts "3 - ".yellow + "Générer un fichier " + "Google Spreadsheet".yellow + " (pas encore implémenté)".blue
     puts
-    puts "4 - ".yellow + "Effacer tous les fichiers".red
+    puts "4 - ".yellow + "Effacer toutes les données sauvegardées".red
     puts "5 - ".yellow + "Quitter".blue
     puts
     print "> "
@@ -24,11 +24,12 @@ class Menu
     elsif choice == 1
       scraper_csv = Scraper.new.write_csv
     elsif choice == 2
-      ##
+      scraper_csv = Scraper.new.write_json
     elsif choice == 3
       ##
     elsif choice == 4
       File.open('db/scraper_data.csv', 'w') {|file| file.truncate(0) }
+      File.open('db/scraper_data.json', 'w') {|file| file.truncate(0) }
     elsif choice == 5
       system ('clear')
       exit
